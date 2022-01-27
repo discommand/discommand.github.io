@@ -1,0 +1,19 @@
+{
+  "name": "discommand-docs",
+  "version": "0.0.1",
+  "description": "easy discord.js commandHandler",
+  "main": "index.js",
+  "authors": {
+    "name": "Migan178",
+    "email": "migan9857@gmail.com"
+  },
+  "repository": "https://github.com/discommand/discommand",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
