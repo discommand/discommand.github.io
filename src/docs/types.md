@@ -36,13 +36,6 @@ command's loadType
 
 > Description: Command Deload.
 
-
-#### CommandReloadAll()
-
-this is now can't.
-
-> Description: Command Reload and run.
-
 ## ListenerHandler
 
 ### Constructor
