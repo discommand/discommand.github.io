@@ -36,23 +36,23 @@ pnpm add discommand
 <code-block title="index.js">
 
 ```js
-const { DiscommndClient } = require('discommand')
-const { Intents } = require('discord.js')
-const path = require('path')
+const { DiscommndClient } = require("discommand");
+const { Intents } = require("discord.js");
+const path = require("path");
 
 const client = new DiscommandClient(
-{
-intents: [Intents.FLAGS.GUILDS],
-},
-{
-loadType: 'FILE',
-CommandHandlerDirectory: path.join(\_\_dirname, 'commands'),
-}
-)
+  {
+    intents: [Intents.FLAGS.GUILDS],
+  },
+  {
+    loadType: "FILE",
+    CommandHandlerDirectory: path.join(__dirname, "commands"),
+  }
+);
 
-client.LoadAll()
+client.LoadAll();
 
-client.login('your_bot_token')
+client.login("your_bot_token");
 ```
 
 </code-block>
