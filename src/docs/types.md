@@ -1,86 +1,36 @@
 # typing
 
-## CommandHandler
+## DiscommandClient
 
 ### Constructor
+
 ```js
-new CommandHandler(client, options);
+new DiscommandClient(ClientOptions, DiscommandClientOptions);
 ```
 
-| PARAMETER | TYPE                                                                                   | DESCRIPTION             |
-| --------- | -------------------------------------------------------------------------------------- |-------------------------|
-| client    | <a href='https://discord.js.org/#/docs/main/stable/class/Client'>discord.js#Client</a> | discord.js' Client.     |
-| options   | <a href='#options'>Options</a>                              | CommandHandler's Option |
+| PARAMETER               | TYPE                                                                                                         | DESCRIPTION                |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------- |
+| ClientOptions           | <a href='https://discord.js.org/#/docs/discord.js/stable/typedef/ClientOptions'>discord.js#ClientOptions</a> | discord.js' ClientOptions. |
+| DiscommandClientOptions | <a href='#discommandclientoptions'>DiscommandClientOptions</a>                                               | CommandHandler's Option    |
 
 ### Properties
 
-#### .path
+#### .DiscommandClientOptions
 
-command file's path
+DiscommandClient's Option
 
-> Type: string
-
-#### .loadType
-
-command's loadType
-
-> Type: <a href='https://github.com/discommand/discommand/blob/main/src/structures/command.ts#L6'>loadType</a>
+> Type: <a href="#discommandclientoptions">DiscommandClientOptions</a>
 
 ### Methods
 
-#### CommandLoadAll()
+#### .LoadAll()
 
-> Description: Command Load and run.
+> Description: Command Load and run or Listener Load and run
 
-#### CommandDeloadAll()
+## DiscommandClientOptions
 
-> Description: Command Deload.
-
-## ListenerHandler
-
-### Constructor
-```javascript
-new ListenerHandler(client, options);
-```
-
-### Properties
-
-#### .path
-
-> Type: string
-
-#### .loadType
-
-> Type: <a href='https://github.com/discommand/discommand/blob/main/src/structures/command.ts#L6'>loadType</a>
-> 
->
-
-### Methods
-
-#### ListenerLoadAll()
-
-> Description: Listener Load and run.
-
-#### ListenerDeloadAll()
-
-> Description: Listener Deload.
-
-
-#### ListenerReloadAll()
-
-this is now can't.
-
-> Description: Listener Reload and run.
-
-| PARAMETER | TYPE                                                                                   | DESCRIPTION              |
-| --------- | -------------------------------------------------------------------------------------- |--------------------------|
-| client    | <a href='https://discord.js.org/#/docs/main/stable/class/Client'>discord.js#Client</a> | discord.js' Client.      |
-| options   | <a href='#options'>Options</a>                              | ListenerHandler's Option |
-
-## Options
-
-| PARAMETER | TYPE                                                                                                   | DESCRIPTION         | EXAMPLE                   |
-|-----------|--------------------------------------------------------------------------------------------------------|---------------------|---------------------------|
-| path      | string                                                                                                 | command file's path | `__dirname + '/commands'` |
-| loadType  | <a href='https://github.com/discommand/discommand/blob/main/src/structures/command.ts#L6'>loadType</a> | command's loadType  | `'FILE'`                  |
-
+| PRAMETER                | TYPE                                                                                                                                                  | EXAMPLE                   |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| CommandHandlerDirectory | string                                                                                                                                                | `__dirname + '/commands'` |
+| ListenerDirectory?      | string                                                                                                                                                | `__dirname + '/events'`   |
+| loadType                | <a href="https://github.com/discommand/discommand/blob/9a84bde950d988b60d688ae6fcffa8cbf7844594/src/types/DiscommandClientOptions.ts#L1">loadType</a> | `'FILE'`                  |
