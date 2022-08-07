@@ -8,10 +8,10 @@
 new DiscommandClient(ClientOptions, DiscommandClientOptions);
 ```
 
-| PARAMETER               | TYPE                                                                                                         | DESCRIPTION                |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------- |
-| ClientOptions           | <a href='https://discord.js.org/#/docs/discord.js/stable/typedef/ClientOptions'>discord.js#ClientOptions</a> | discord.js' ClientOptions. |
-| DiscommandClientOptions | <a href='#discommandclientoptions'>DiscommandClientOptions</a>                                               | CommandHandler's Option    |
+|PARAMETER|TYPE|DESCRIPTION|
+|---------|----|-----------|
+|ClientOptions|<a href='https://discord.js.org/#/docs/discord.js/stable/typedef/ClientOptions'>discord.js#ClientOptions</a>|discord.js' ClientOptions.|
+|DiscommandClientOptions|<a href='#discommandclientoptions'>DiscommandClientOptions</a>|CommandHandler's Option|
 
 ### Properties
 
