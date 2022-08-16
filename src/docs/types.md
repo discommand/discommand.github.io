@@ -5,7 +5,7 @@
 ### Constructor
 
 ```js
-new DiscommandClient(ClientOptions, DiscommandClientOptions);
+new DiscommandClient(ClientOptions, Options);
 ```
 
 |PARAMETER|TYPE|DESCRIPTION|
@@ -15,9 +15,9 @@ new DiscommandClient(ClientOptions, DiscommandClientOptions);
 
 ### Properties
 
-#### .DiscommandClientOptions
+#### .Options
 
-DiscommandClient's Option
+DiscommandClient's Options
 
 > Type: <a href="#discommandclientoptions">DiscommandClientOptions</a>
 
@@ -29,8 +29,7 @@ DiscommandClient's Option
 
 ## DiscommandClientOptions
 
-| PRAMETER                | TYPE                                                                                                                                                  | EXAMPLE                   |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| CommandHandlerDirectory | string                                                                                                                                                | `__dirname + '/commands'` |
-| ListenerDirectory?      | string                                                                                                                                                | `__dirname + '/events'`   |
-| loadType                | <a href="https://github.com/discommand/discommand/blob/9a84bde950d988b60d688ae6fcffa8cbf7844594/src/types/DiscommandClientOptions.ts#L1">loadType</a> | `'FILE'`                  |
+|PARAMETER|TYPE|EXAMPLE|
+|---------|----|-------|
+|loadtype|<a href="https://github.com/discommand/discommand/blob/main/src/types/index.ts#L3">Loadtype</a>|`__dirname + '/commands'`|
+|directory|<a href="https://github.com/discommand/discommand/blob/main/src/types/index.ts#L15">directory</a>|`{ commandFolderDirectory: __dirname + '/commands' }`|
