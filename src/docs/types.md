@@ -23,13 +23,22 @@ DiscommandClient's Options
 
 ### Methods
 
-#### .LoadAll()
+#### .loadAll()
 
 > Description: Command Load and run or Listener Load and run
+
+#### .deloadAll()
+
+> Description: Command deload or Listener deload
+
+#### .reloadAll()
+
+> Description: Command reload or Listener reload
+
 
 ## DiscommandClientOptions
 
 |PARAMETER|TYPE|EXAMPLE|
 |---------|----|-------|
-|loadtype|<a href="https://github.com/discommand/discommand/blob/main/src/types/index.ts#L3">Loadtype</a>|`__dirname + '/commands'`|
+|loadtype|<a href="https://github.com/discommand/discommand/blob/main/src/types/index.ts#L3">Loadtype</a>|`LoadType.File`|
 |directory|<a href="https://github.com/discommand/discommand/blob/main/src/types/index.ts#L15">directory</a>|`{ commandFolderDirectory: __dirname + '/commands' }`|

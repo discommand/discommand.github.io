@@ -40,7 +40,6 @@ pnpm add discommand
 ```js
 const { DiscommndClient, LoadType } = require('discommand')
 const { GatewayIntentBits } = require('discord.js')
-const path = require('path')
 
 const client = new DiscommandClient(
   {
@@ -49,12 +48,12 @@ const client = new DiscommandClient(
   {
     loadType: LoadType.File,
     directory: {
-      commandFolderDirectory: path.join(__dirname, 'commands'),
+      commandFolderDirectory: __dirname + '/commands',
     },
   }
 )
 
-client.LoadAll()
+client.loadAll()
 
 client.login('your_bot_token')
 ```
@@ -68,7 +67,10 @@ const { Command } = require('discommand')
 const { SlashCommandBuilder } = require('discord.js')
 
 module.exports = class extends Command {
-  data = new SlashCommandBuilder().setName('ping').setDescription('pong')
+  constructor() {
+    this.name = 'ping'
+    this.description = 'Pong'
+  }
   execute(interaction, cmd) {
     interaction.reply('Pong!')
   }
@@ -87,7 +89,6 @@ module.exports = class extends Command {
 ```ts
 import { DiscommandClient, LoadType } from 'discommand'
 import { GatewayIntentBits } from 'discord.js'
-import * as path from 'path'
 
 const client = new DiscommandClient(
   {
@@ -96,7 +97,7 @@ const client = new DiscommandClient(
   {
     loadType: LoadType.File,
     directory: {
-      commandFolderDirectory: path.join(__dirname, 'commands'),
+      commandFolderDirectory: __dirname + '/commands',
     },
   }
 )
@@ -115,7 +116,10 @@ import { Command } from 'discommand'
 import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
 
 export default class extends Command {
-  data = new SlashCommandBuilder().setName('ping').setDescription('pong')
+  constructor() {
+    this.name = 'ping'
+    this.description = 'Pong'
+  }
   execute(interaction: ChatInputCommandInteraction, cmd: DiscommandHandler) {
     interaction.reply('Pong!')
   }
