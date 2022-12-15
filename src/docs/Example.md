@@ -71,7 +71,7 @@ module.exports = class extends Command {
     this.name = 'ping'
     this.description = 'Pong'
   }
-  execute(interaction, cmd) {
+  execute(interaction) {
     interaction.reply('Pong!')
   }
 }
@@ -120,7 +120,7 @@ export default class extends Command {
     this.name = 'ping'
     this.description = 'Pong'
   }
-  execute(interaction: ChatInputCommandInteraction, cmd: DiscommandHandler) {
+  execute(interaction: ChatInputCommandInteraction) {
     interaction.reply('Pong!')
   }
 }
