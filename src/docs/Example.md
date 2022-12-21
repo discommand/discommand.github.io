@@ -29,7 +29,7 @@ pnpm add discommand
 </code-block>
 </code-group>
 
-## Command
+## ChatInput Command
 
 ### Usage for Javascript
 ---
@@ -48,7 +48,7 @@ const client = new DiscommandClient(
   {
     loadType: LoadType.File,
     directory: {
-      commandFolderDirectory: __dirname + '/commands',
+      command: __dirname + '/commands',
     },
   }
 )
@@ -64,12 +64,13 @@ client.login('your_bot_token')
 
 ```js
 const { Command } = require('discommand')
-const { SlashCommandBuilder } = require('discord.js')
+const { SlashCommandBuilder, ApplicationCommandType } = require('discord.js')
 
 module.exports = class extends Command {
   constructor() {
     this.name = 'ping'
     this.description = 'Pong'
+    this.type = ApplicationCommandType.ChatInput
   }
   execute(interaction) {
     interaction.reply('Pong!')
@@ -97,7 +98,7 @@ const client = new DiscommandClient(
   {
     loadType: LoadType.File,
     directory: {
-      commandFolderDirectory: __dirname + '/commands',
+      command: __dirname + '/commands',
     },
   }
 )
@@ -113,15 +114,107 @@ client.login('your_bot_token')
 
 ```ts
 import { Command } from 'discommand'
-import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js'
+import { ChatInputCommandInteraction, ApplicationCommandType } from 'discord.js'
 
 export default class extends Command {
   constructor() {
     this.name = 'ping'
     this.description = 'Pong'
+    this.type = ApplicationCommandType.ChatInput
   }
   execute(interaction: ChatInputCommandInteraction) {
     interaction.reply('Pong!')
+  }
+}
+```
+
+</code-block>
+</code-group>
+
+
+## Context Menu
+
+### Usage for JavaScript
+
+---
+
+<code-group>
+<code-block title="User Context Menu">
+
+```js
+const { Command } = require('discommand')
+const { SlashCommandBuilder, ApplicationCommandType } = require('discord.js')
+
+module.exports = class extends Command {
+  constructor() {
+    this.name = 'user'
+    this.type = ApplicationCommandType.User
+  }
+  execute(interaction) {
+    interaction.reply(`Hello ${interaction.targetUser}`)
+  }
+}
+```
+
+</code-block>
+
+<code-block title="Messaeg Context Menu">
+
+```js
+const { Command } = require('discommand')
+const { SlashCommandBuilder, ApplicationCommandType } = require('discord.js')
+
+module.exports = class extends Command {
+  constructor() {
+    this.name = 'message'
+    this.type = ApplicationCommandType.Message
+  }
+  execute(interaction) {
+    interaction.reply(`Message is ${interaction.targetMessage}`)
+  }
+}
+```
+
+</code-block>
+</code-group>
+
+### Using for TypeScript
+
+---
+
+<code-group>
+<code-block title="User Context Menu">
+
+```ts
+import { Command } from 'discommand'
+import { UserContextMenuCommandInteraction, ApplicationCommandType } from 'discord.js'
+
+export default class extends Command {
+  constructor() {
+    this.name = 'user'
+    this.type = ApplicationCommandType.User
+  }
+  execute(interaction: UserContextMenuCommandInteraction) {
+    interaction.reply(`Hello ${interaction.targetUser}`)
+  }
+}
+```
+
+</code-block>
+
+<code-block title="Message Context Menu">
+
+```ts
+import { Command } from 'discommand'
+import { MessageContextMenuCommandInteraction, ApplicationCommandType } from 'discord.js'
+
+export default class extends Command {
+  constructor() {
+    this.name = 'message'
+    this.type = ApplicationCommandType.Message
+  }
+  execute(interaction: MessageContextMenuCommandInteraction) {
+    interaction.reply(`Message is ${interaction.targetMessage}`)
   }
 }
 ```

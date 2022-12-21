@@ -1,6 +1,6 @@
 ---
 home: true
-# heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: /logo.png
 tagline: easy discord.js commandHandler
 actionText: Quick Start
 actionLink: /docs/Example/
