@@ -158,7 +158,7 @@ module.exports = class extends Command {
 
 </code-block>
 
-<code-block title="Messaeg Context Menu">
+<code-block title="Message Context Menu">
 
 ```js
 const { Command } = require('discommand')
