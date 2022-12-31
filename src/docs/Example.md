@@ -38,7 +38,7 @@ pnpm add discommand
 <code-block title="index.js">
 
 ```js
-const { DiscommndClient, LoadType } = require('discommand')
+const { DiscommndClient } = require('discommand')
 const { GatewayIntentBits } = require('discord.js')
 
 const client = new DiscommandClient(
@@ -53,9 +53,7 @@ const client = new DiscommandClient(
   }
 )
 
-client.loadAll()
-
-client.login('your_bot_token')
+client.start('your_bot_token')
 ```
 
 </code-block>
@@ -64,13 +62,16 @@ client.login('your_bot_token')
 
 ```js
 const { Command } = require('discommand')
-const { SlashCommandBuilder, ApplicationCommandType } = require('discord.js')
+const { ApplicationCommandType } = require('discord.js')
 
 module.exports = class extends Command {
   constructor() {
-    this.name = 'ping'
-    this.description = 'Pong'
-    this.type = ApplicationCommandType.ChatInput
+    super()
+    this.data = {
+      name: 'ping',
+      description: 'Pong',
+      type: ApplicationCommandType.ChatInput,
+    }
   }
   execute(interaction) {
     interaction.reply('Pong!')
@@ -89,7 +90,7 @@ module.exports = class extends Command {
 <code-block title="index.ts">
 
 ```ts
-import { DiscommandClient, LoadType } from 'discommand'
+import { DiscommandClient } from 'discommand'
 import { GatewayIntentBits } from 'discord.js'
 
 const client = new DiscommandClient(
@@ -104,9 +105,7 @@ const client = new DiscommandClient(
   }
 )
 
-client.loadAll()
-
-client.login('your_bot_token')
+client.start('your_bot_token')
 ```
 
 </code-block>
@@ -120,9 +119,11 @@ import { ChatInputCommandInteraction, ApplicationCommandType } from 'discord.js'
 export default class extends Command {
   constructor() {
     super()
-    this.name = 'ping'
-    this.description = 'Pong'
-    this.type = ApplicationCommandType.ChatInput
+    this.data = {
+      name: 'ping',
+      description: 'Pong',
+      type: ApplicationCommandType.ChatInput,
+    }
   }
   execute(interaction: ChatInputCommandInteraction) {
     interaction.reply('Pong!')
@@ -144,13 +145,15 @@ export default class extends Command {
 
 ```js
 const { Command } = require('discommand')
-const { SlashCommandBuilder, ApplicationCommandType } = require('discord.js')
+const { ApplicationCommandType } = require('discord.js')
 
 module.exports = class extends Command {
   constructor() {
     super()
-    this.name = 'user'
-    this.type = ApplicationCommandType.User
+    this.data = {
+      name: 'ping',
+      type: ApplicationCommandType.User,
+    }
   }
   execute(interaction) {
     interaction.reply(`Hello ${interaction.targetUser}`)
@@ -164,13 +167,15 @@ module.exports = class extends Command {
 
 ```js
 const { Command } = require('discommand')
-const { SlashCommandBuilder, ApplicationCommandType } = require('discord.js')
+const { ApplicationCommandType } = require('discord.js')
 
 module.exports = class extends Command {
   constructor() {
     super()
-    this.name = 'message'
-    this.type = ApplicationCommandType.Message
+    this.data = {
+      name: 'ping',
+      type: ApplicationCommandType.Message,
+    }
   }
   execute(interaction) {
     interaction.reply(`Message is ${interaction.targetMessage}`)
@@ -198,8 +203,10 @@ import {
 export default class extends Command {
   constructor() {
     super()
-    this.name = 'user'
-    this.type = ApplicationCommandType.User
+    this.data = {
+      name: 'ping',
+      type: ApplicationCommandType.User,
+    }
   }
   execute(interaction: UserContextMenuCommandInteraction) {
     interaction.reply(`Hello ${interaction.targetUser}`)
@@ -221,8 +228,10 @@ import {
 export default class extends Command {
   constructor() {
     super()
-    this.name = 'message'
-    this.type = ApplicationCommandType.Message
+    this.data = {
+      name: 'ping',
+      type: ApplicationCommandType.Message,
+    }
   }
   execute(interaction: MessageContextMenuCommandInteraction) {
     interaction.reply(`Message is ${interaction.targetMessage}`)

@@ -1,10 +1,10 @@
-const { description, repository } = require("../../package");
+const { description, repository } = require('../../package')
 
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: "discommand",
+  title: 'discommand',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -16,12 +16,12 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ["link", { rel: "icon", href: "/logo.png" }],
-    ["meta", { name: "theme-color", content: "#3eaf7c" }],
-    ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
+    ['link', { rel: 'icon', href: '/logo.png' }],
+    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     [
-      "meta",
-      { name: "apple-mobile-web-app-status-bar-style", content: "black" },
+      'meta',
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
     ],
   ],
 
@@ -31,28 +31,28 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: "",
-    logo: "/logo.png",
+    repo: '',
+    logo: '/logo.png',
     editLinks: false,
-    docsDir: "",
-    editLinkText: "",
-    lastUpdated: false,
+    docsDir: '',
+    editLinkText: '',
+    lastUpdated: true,
     nav: [
       {
-        text: "Docs",
-        link: "/docs/",
+        text: 'Docs',
+        link: '/docs/',
       },
       {
-        text: "Github",
+        text: 'Github',
         link: repository,
       },
     ],
     sidebar: {
-      "/docs/": [
+      '/docs/': [
         {
-          title: "Docs",
+          title: 'Docs',
           collapsable: false,
-          children: ["", "Example", "types", "change-in-v11"],
+          children: ['', 'Example', 'types', 'change-in-v11'],
         },
       ],
     },
@@ -61,5 +61,5 @@ module.exports = {
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
-  plugins: ["@vuepress/plugin-back-to-top", "@vuepress/plugin-medium-zoom"],
-};
+  plugins: ['@vuepress/plugin-back-to-top', '@vuepress/plugin-medium-zoom'],
+}
