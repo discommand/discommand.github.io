@@ -19,7 +19,6 @@ yarn add discommand
 
 </code-block>
 
-
 <code-block title='pnpm'>
 
 ```bash
@@ -32,6 +31,7 @@ pnpm add discommand
 ## ChatInput Command
 
 ### Usage for Javascript
+
 ---
 
 <code-group>
@@ -82,6 +82,7 @@ module.exports = class extends Command {
 </code-group>
 
 ### Usage for TypeScript
+
 ---
 
 <code-group>
@@ -118,6 +119,7 @@ import { ChatInputCommandInteraction, ApplicationCommandType } from 'discord.js'
 
 export default class extends Command {
   constructor() {
+    super()
     this.name = 'ping'
     this.description = 'Pong'
     this.type = ApplicationCommandType.ChatInput
@@ -130,7 +132,6 @@ export default class extends Command {
 
 </code-block>
 </code-group>
-
 
 ## Context Menu
 
@@ -147,6 +148,7 @@ const { SlashCommandBuilder, ApplicationCommandType } = require('discord.js')
 
 module.exports = class extends Command {
   constructor() {
+    super()
     this.name = 'user'
     this.type = ApplicationCommandType.User
   }
@@ -166,6 +168,7 @@ const { SlashCommandBuilder, ApplicationCommandType } = require('discord.js')
 
 module.exports = class extends Command {
   constructor() {
+    super()
     this.name = 'message'
     this.type = ApplicationCommandType.Message
   }
@@ -187,10 +190,14 @@ module.exports = class extends Command {
 
 ```ts
 import { Command } from 'discommand'
-import { UserContextMenuCommandInteraction, ApplicationCommandType } from 'discord.js'
+import {
+  UserContextMenuCommandInteraction,
+  ApplicationCommandType,
+} from 'discord.js'
 
 export default class extends Command {
   constructor() {
+    super()
     this.name = 'user'
     this.type = ApplicationCommandType.User
   }
@@ -206,10 +213,14 @@ export default class extends Command {
 
 ```ts
 import { Command } from 'discommand'
-import { MessageContextMenuCommandInteraction, ApplicationCommandType } from 'discord.js'
+import {
+  MessageContextMenuCommandInteraction,
+  ApplicationCommandType,
+} from 'discord.js'
 
 export default class extends Command {
   constructor() {
+    super()
     this.name = 'message'
     this.type = ApplicationCommandType.Message
   }

@@ -52,7 +52,7 @@ module.exports = {
         {
           title: "Docs",
           collapsable: false,
-          children: ["", "Example", "types"],
+          children: ["", "Example", "types", "change-in-v11"],
         },
       ],
     },
