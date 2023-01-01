@@ -3,29 +3,29 @@
 ## Install
 
 <code-group>
-<code-block title="npm">
+<code-group-item title="npm">
 
 ```bash
 npm i discommand
 ```
 
-</code-block>
+</code-group-item>
 
-<code-block title="yarn">
+<code-group-item title="yarn">
 
 ```bash
 yarn add discommand
 ```
 
-</code-block>
+</code-group-item>
 
-<code-block title='pnpm'>
+<code-group-item title='pnpm'>
 
 ```bash
 pnpm add discommand
 ```
 
-</code-block>
+</code-group-item>
 </code-group>
 
 ## ChatInput Command
@@ -35,7 +35,7 @@ pnpm add discommand
 ---
 
 <code-group>
-<code-block title="index.js">
+<code-group-item title="index.js">
 
 ```js
 const { DiscommndClient } = require('discommand')
@@ -46,7 +46,6 @@ const client = new DiscommandClient(
     intents: [GatewayIntentBits.Guilds],
   },
   {
-    loadType: LoadType.File,
     directory: {
       command: __dirname + '/commands',
     },
@@ -56,9 +55,9 @@ const client = new DiscommandClient(
 client.start('your_bot_token')
 ```
 
-</code-block>
+</code-group-item>
 
-<code-block title="commands/ping.js">
+<code-group-item title="commands/ping.js">
 
 ```js
 const { Command } = require('discommand')
@@ -79,7 +78,7 @@ module.exports = class extends Command {
 }
 ```
 
-</code-block>
+</code-group-item>
 </code-group>
 
 ### Usage for TypeScript
@@ -87,7 +86,7 @@ module.exports = class extends Command {
 ---
 
 <code-group>
-<code-block title="index.ts">
+<code-group-item title="index.ts">
 
 ```ts
 import { DiscommandClient } from 'discommand'
@@ -98,7 +97,6 @@ const client = new DiscommandClient(
     intents: [GatewayIntentBits.Guilds],
   },
   {
-    loadType: LoadType.File,
     directory: {
       command: __dirname + '/commands',
     },
@@ -108,9 +106,9 @@ const client = new DiscommandClient(
 client.start('your_bot_token')
 ```
 
-</code-block>
+</code-group-item>
 
-<code-block title="commands/ping.ts">
+<code-group-item title="commands/ping.ts">
 
 ```ts
 import { Command } from 'discommand'
@@ -131,7 +129,7 @@ export default class extends Command {
 }
 ```
 
-</code-block>
+</code-group-item>
 </code-group>
 
 ## Context Menu
@@ -141,7 +139,7 @@ export default class extends Command {
 ---
 
 <code-group>
-<code-block title="User Context Menu">
+<code-group-item title="User Context Menu">
 
 ```js
 const { Command } = require('discommand')
@@ -161,9 +159,9 @@ module.exports = class extends Command {
 }
 ```
 
-</code-block>
+</code-group-item>
 
-<code-block title="Message Context Menu">
+<code-group-item title="Message Context Menu">
 
 ```js
 const { Command } = require('discommand')
@@ -183,7 +181,7 @@ module.exports = class extends Command {
 }
 ```
 
-</code-block>
+</code-group-item>
 </code-group>
 
 ### Using for TypeScript
@@ -191,7 +189,7 @@ module.exports = class extends Command {
 ---
 
 <code-group>
-<code-block title="User Context Menu">
+<code-group-item title="User Context Menu">
 
 ```ts
 import { Command } from 'discommand'
@@ -214,9 +212,9 @@ export default class extends Command {
 }
 ```
 
-</code-block>
+</code-group-item>
 
-<code-block title="Message Context Menu">
+<code-group-item title="Message Context Menu">
 
 ```ts
 import { Command } from 'discommand'
@@ -239,13 +237,13 @@ export default class extends Command {
 }
 ```
 
-</code-block>
+</code-group-item>
 </code-group>
 
 ## Event listener
 
 <code-group>
-<code-block title="Using for JavaScript">
+<code-group-item title="Using for JavaScript">
 
 ```js
 const { Listener } = require('discommand')
@@ -260,9 +258,9 @@ module.exports = class extends Listener {
 }
 ```
 
-</code-block>
+</code-group-item>
 
-<code-block title="Using for TypeScript">
+<code-group-item title="Using for TypeScript">
 
 ```ts
 import { Listener } from 'discommand'
@@ -278,5 +276,5 @@ export default class extends Listener {
 }
 ```
 
-</code-block>
+</code-group-item>
 </code-group>
