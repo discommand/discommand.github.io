@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-147825fb","path":"/docs/","title":"discommand","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":1672562570000,"contributors":[{"name":"Jeon Siwoo","email":"migan9857@gmail.com","commits":1}]},"filePathRelative":"docs/README.md"}');export{e as data};
