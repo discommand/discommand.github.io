@@ -13,7 +13,7 @@ new DiscommandClient(clientOptions, options)
 | PARAMETER     | TYPE                                                                            | DESCRIPTION                |
 | ------------- | ------------------------------------------------------------------------------- | -------------------------- |
 | clientOptions | [Client](https://discord.js.org/#/docs/discord.js/stable/typedef/ClientOptions) | discord.js' ClientOptions. |
-| options       | [DiscommandClientOptions](#discommandclientoptions)                             | CommandHandler's Option    |
+| options       | [DiscommandClientOptions](#discommandclientoptions)                             | DiscommandClient's Option  |
 
 ### Properties
 

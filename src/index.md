@@ -1,9 +1,10 @@
 ---
 home: true
 heroImage: /logo.png
-tagline: easy discord.js commandHandler
-actionText: Quick Start
-actionLink: /docs/Example/
+tagline: easy discord.js command handler.
+actions:
+  - text: Get Started
+    link: /docs/Example/
 features:
   - title: Easy
     details: Easy discord.js commandHandler
@@ -11,5 +12,5 @@ features:
     details: Support Slash Command
   - title: typescript support
     details: this library is support typescript
-footer: Made by Migan178 with ❤️
+footer: Made by discommand with ❤️
 ---
