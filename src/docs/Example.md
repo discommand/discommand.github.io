@@ -241,3 +241,42 @@ export default class extends Command {
 
 </code-block>
 </code-group>
+
+## Event listener
+
+<code-group>
+<code-block title="Using for JavaScript">
+
+```js
+const { Listener } = require('discommand')
+
+module.exports = class extends Listener {
+  constructor() {
+    super('ready')
+  }
+  execute(client) {
+    console.log(`Login as ${client.user?.username}`)
+  }
+}
+```
+
+</code-block>
+
+<code-block title="Using for TypeScript">
+
+```ts
+import { Listener } from 'discommand'
+import type { Client } from 'discord.js'
+
+export default class extends Listener {
+  constructor() {
+    super('ready')
+  }
+  execute(client: Client) {
+    console.log(`Login as ${client.user?.username}`)
+  }
+}
+```
+
+</code-block>
+</code-group>
