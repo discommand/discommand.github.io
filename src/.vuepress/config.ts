@@ -37,6 +37,7 @@ export default {
             '/docs/Example.md',
             '/docs/types.md',
             '/docs/change-in-v11.md',
+            '/docs/change-in-v12.md',
           ],
         },
       ],

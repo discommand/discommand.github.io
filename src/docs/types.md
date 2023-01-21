@@ -37,6 +37,12 @@ DiscommandClient's Options
 
 > Description: Module reload
 
+#### .start() <Badge type="danger" text="DEPRECATED" vertical="bottom" />
+
+::: danger
+use .login('your-token')
+:::
+
 ## DiscommandClientOptions
 
 | PROPERTY  | TYPE                                                                                  | OPTIONAL | EXAMPLE                                |
@@ -46,7 +52,7 @@ DiscommandClient's Options
 
 ## DiscommandHandler
 
-extends [BaseHandler](https://github.com/discommand/discommand/blob/main/src/Bases/BaseHandler.ts)
+extends [BaseHandler](https://github.com/discommand/discommand/blob/main/packages/discommand/src/Bases/BaseHandler.ts)
 
 ### Constructor
 
@@ -89,17 +95,17 @@ new DiscommandHandler(options)
 
 abstract
 
-extends [Base](https://github.com/discommand/discommand/blob/main/src/Bases/Base.ts)
+extends [Base](https://github.com/discommand/discommand/blob/main/packages/discommand/src/Bases/Base.ts)
 
 ### Constructor
 
 ```js
-new Command(name)
+new Command(data)
 ```
 
-| PARAMETER | TYPE                                                                                              | DESCRIPTION    |
-| --------- | ------------------------------------------------------------------------------------------------- | -------------- |
-| name      | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) | Command's name |
+| PARAMETER | TYPE                                                                                                   | DESCRIPTION    |
+| --------- | ------------------------------------------------------------------------------------------------------ | -------------- |
+| data      | [ApplicationCommandData](https://discord.js.org/#/docs/discord.js/main/typedef/ApplicationCommandData) | Command's data |
 
 ### Properties
 
@@ -107,11 +113,17 @@ new Command(name)
 
 > Type: [ApplicationCommandData](https://discord.js.org/#/docs/discord.js/main/typedef/ApplicationCommandData)
 
+### Methods
+
+#### .toJSON()
+
+> Return: [ApplicationCommandData](https://discord.js.org/#/docs/discord.js/main/typedef/ApplicationCommandData)
+
 ## Listener
 
 abstract
 
-extends [Base](https://github.com/discommand/discommand/blob/main/src/Bases/Base.ts)
+extends [Base](https://github.com/discommand/discommand/blob/main/packages/discommand/src/Bases/Base.ts)
 
 ### Constructor
 

@@ -1,5 +1,7 @@
 # Example
 
+- **This is Pure ESM Package. [See this document for details.](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)**
+
 ## Install
 
 <code-group>
@@ -38,8 +40,10 @@ pnpm add discommand
 <code-group-item title="index.js">
 
 ```js
-const { DiscommndClient } = require('discommand')
-const { GatewayIntentBits } = require('discord.js')
+import { DiscommandClient } from 'discommand'
+import { GatewayIntentBits } from 'discord.js'
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const client = new DiscommandClient(
   {
@@ -47,12 +51,12 @@ const client = new DiscommandClient(
   },
   {
     directory: {
-      command: __dirname + '/commands',
+      command: dirname(fileURLToPath(import.meta.url)) + '/commands',
     },
   }
 )
 
-client.start('your_bot_token')
+client.login('your_bot_token')
 ```
 
 </code-group-item>
@@ -60,17 +64,16 @@ client.start('your_bot_token')
 <code-group-item title="commands/ping.js">
 
 ```js
-const { Command } = require('discommand')
-const { ApplicationCommandType } = require('discord.js')
+import { Command } from 'discommand'
+import { ApplicationCommandType } from 'discord.js'
 
-module.exports = class extends Command {
+export default class extends Command {
   constructor() {
-    super()
-    this.data = {
+    super({
       name: 'ping',
       description: 'Pong',
       type: ApplicationCommandType.ChatInput,
-    }
+    })
   }
   execute(interaction) {
     interaction.reply('Pong!')
@@ -91,6 +94,8 @@ module.exports = class extends Command {
 ```ts
 import { DiscommandClient } from 'discommand'
 import { GatewayIntentBits } from 'discord.js'
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const client = new DiscommandClient(
   {
@@ -98,12 +103,12 @@ const client = new DiscommandClient(
   },
   {
     directory: {
-      command: __dirname + '/commands',
+      command: dirname(fileURLToPath(import.meta.url)) + '/commands',
     },
   }
 )
 
-client.start('your_bot_token')
+client.login('your_bot_token')
 ```
 
 </code-group-item>
@@ -116,12 +121,11 @@ import { ChatInputCommandInteraction, ApplicationCommandType } from 'discord.js'
 
 export default class extends Command {
   constructor() {
-    super()
-    this.data = {
+    super({
       name: 'ping',
       description: 'Pong',
       type: ApplicationCommandType.ChatInput,
-    }
+    })
   }
   execute(interaction: ChatInputCommandInteraction) {
     interaction.reply('Pong!')
@@ -142,19 +146,18 @@ export default class extends Command {
 <code-group-item title="User Context Menu">
 
 ```js
-const { Command } = require('discommand')
-const { ApplicationCommandType } = require('discord.js')
+import { Command } from 'discommand'
+import { ApplicationCommandType } from 'discord.js'
 
-module.exports = class extends Command {
+export default class extends Command {
   constructor() {
-    super()
-    this.data = {
-      name: 'ping',
+    super({
+      name: 'user',
       type: ApplicationCommandType.User,
-    }
+    })
   }
   execute(interaction) {
-    interaction.reply(`Hello ${interaction.targetUser}`)
+    interaction.reply(`Target User is ${interaction.targetUser}`)
   }
 }
 ```
@@ -164,19 +167,18 @@ module.exports = class extends Command {
 <code-group-item title="Message Context Menu">
 
 ```js
-const { Command } = require('discommand')
-const { ApplicationCommandType } = require('discord.js')
+import { Command } from 'discommand'
+import { ApplicationCommandType } from 'discord.js'
 
-module.exports = class extends Command {
+export default class extends Command {
   constructor() {
-    super()
-    this.data = {
-      name: 'ping',
+    super({
+      name: 'message',
       type: ApplicationCommandType.Message,
-    }
+    })
   }
   execute(interaction) {
-    interaction.reply(`Message is ${interaction.targetMessage}`)
+    interaction.reply(`Target Message is ${interaction.targetMessage}`)
   }
 }
 ```
@@ -200,14 +202,13 @@ import {
 
 export default class extends Command {
   constructor() {
-    super()
-    this.data = {
-      name: 'ping',
+    super({
+      name: 'user',
       type: ApplicationCommandType.User,
-    }
+    })
   }
   execute(interaction: UserContextMenuCommandInteraction) {
-    interaction.reply(`Hello ${interaction.targetUser}`)
+    interaction.reply(`Target User is ${interaction.targetUser}`)
   }
 }
 ```
@@ -225,14 +226,13 @@ import {
 
 export default class extends Command {
   constructor() {
-    super()
-    this.data = {
-      name: 'ping',
+    super({
+      name: 'message',
       type: ApplicationCommandType.Message,
-    }
+    })
   }
   execute(interaction: MessageContextMenuCommandInteraction) {
-    interaction.reply(`Message is ${interaction.targetMessage}`)
+    interaction.reply(`Target Message is ${interaction.targetMessage}`)
   }
 }
 ```
@@ -246,9 +246,9 @@ export default class extends Command {
 <code-group-item title="Using for JavaScript">
 
 ```js
-const { Listener } = require('discommand')
+import { Listener } from 'discommand'
 
-module.exports = class extends Listener {
+export default class extends Listener {
   constructor() {
     super('ready')
   }
@@ -264,7 +264,7 @@ module.exports = class extends Listener {
 
 ```ts
 import { Listener } from 'discommand'
-import type { Client } from 'discord.js'
+import { type Client } from 'discord.js'
 
 export default class extends Listener {
   constructor() {
