@@ -37,18 +37,13 @@ DiscommandClient's Options
 
 > Description: Module reload
 
-#### .start() <Badge type="danger" text="DEPRECATED" vertical="bottom" />
-
-::: danger
-use .login('your-token')
-:::
-
 ## DiscommandClientOptions
 
 | PROPERTY  | TYPE                                                                                  | OPTIONAL | EXAMPLE                                |
 | --------- | ------------------------------------------------------------------------------------- | -------- | -------------------------------------- |
 | directory | [directory](https://github.com/discommand/discommand/blob/main/src/types/index.ts#L5) |          | `{ command: __dirname + '/commands' }` |
-| guildID   | [Snowflakes](https://discord.com/developers/docs/reference#snowflakes)                | O        | `your guild id`                        |
+| guildID   | [Snowflakes](https://discord.com/developers/docs/reference#snowflakes)                | O        | `your_guild_id`                        |
+| plugin    | [Array\<BasePlugin\>](https://github.com/discommand/discommand/blob/main/packages/discommand/src/Bases/BasePlugin.ts)                                                           | O        | `new Plugin()`                         |
 
 ## DiscommandHandler
 
